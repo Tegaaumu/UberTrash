@@ -1,0 +1,67 @@
+main{
+    position: relative;
+    padding: 50px 0px;
+    display: flex;
+    justify-content: space-around;
+    height: 90vh;
+}
+#slogan h2{
+    font-size: 40px;
+}
+.company_solgan{
+    width: 500px;
+    justify-content: center;
+    padding: 100px 10px;
+}
+#slogan #secound{
+    margin-top: -7px;
+}
+#slogan p{
+    width: 350px;
+    font-weight: 600;
+    margin-top: 13px;
+}
+.userLocation{
+    width: 100%;
+    margin-top: 30px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.userLocation #location{
+    padding: 15px 30px;
+    background-color: #ffedcc;
+    border-radius: 50px;
+    border-width: 0px;
+}
+.userLocationButtons{
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+.signup{
+    background-color: #ffa500;
+    color: #fff;
+    border: 0px;
+    padding: 10px 30px;
+    border-radius: 50px;
+}
+.companyImage{
+    align-items: flex-start;
+    margin-right: 400px;
+}
+.companyImage img:nth-child(1) {
+    position: absolute;
+    z-index: 1;
+    height: 60vh;
+    margin-top: 80px;
+    size: 400px;
+    margin-left: -50px;
+}
+
+.companyImage img:nth-child(2) {
+    position: absolute;
+    height: 140vh;
+    margin-top: -280px;
+}

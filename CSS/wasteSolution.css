@@ -1,0 +1,102 @@
+.wasteSolution{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* height: 100vh; */
+    padding: 40px 0px;
+}
+.wasteSolution .wasteSolutionIntro{
+    padding: 10px;
+}
+.wasteSolution .wasteSolutionIntro h3{
+    font-size: 35px;
+    margin-bottom: 7px;
+    word-spacing: 30px;
+}
+.wasteSolution .wasteSolutionIntro p{
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+.wasteSolution .wasteInformationcontact .businesstype{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+    margin: 25px 0px;
+    padding: 10px;
+}
+.wasteSolution .wasteInformationcontact .businesstype .Hometype{
+    width: 350px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px #888888;
+}
+.wasteSolution .wasteInformationcontact{
+        margin-top: 40px;
+        width: 100%;
+        background-image: url('../Image/istockphoto-1132053804-612x612.jpg');
+        background-size: cover; /* Adjust to fit the container */
+        background-repeat: no-repeat; /* Prevent repetition */
+        background-position: center center; /* Center the image */
+        background-blend-mode: color-burn;
+        background-color: rgba(255, 255, 255, 0.637);
+    
+}
+.wasteSolution .wasteInformationcontact form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wasteSolution .wasteInformationcontact form #Address{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-bottom: 30px;
+}
+.wasteSolution .wasteInformationcontact form #Address input{
+    padding: 10px 50px;
+    border-radius: 50px;
+    border: 2px solid#ffa500;
+    background-color: transparent;
+}
+.wasteSolution .wasteInformationcontact form #usersName{
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+.wasteSolution .wasteInformationcontact form #usersName label{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.wasteSolution .wasteInformationcontact form #usersName input{
+    padding: 10px 50px;
+    border-radius: 50px;
+    width: 250px;
+    border: 1px solid#ffa500;
+    background-color: transparent;
+}
+.wasteSolution .wasteInformationcontact form #submitAddress{
+    width: 100%;
+    margin: 40px 0px;
+    margin-bottom: 30px;
+    padding: 10px 50px;
+    border-radius: 50px;
+    border-width: 0px;
+    background-color: #ffa500;
+}
