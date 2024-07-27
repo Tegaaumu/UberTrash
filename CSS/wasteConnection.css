@@ -1,0 +1,40 @@
+.wasteConnection{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fcca6f;
+}
+.wasteConnection .wasteConnectionContent{
+    width: 600px;
+    margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+.wasteConnection .wasteConnectionContent h3{
+    font-size: 33px;
+    color: #fff;
+    margin-bottom: 40px;
+}
+.wasteConnection .wasteConnectionContent p{
+    font-size: 15px;
+    margin-top: -10px;
+    margin-bottom: 40px;
+}
+.wasteConnection .wasteConnectionContent ul{
+    margin-right: 200px;
+}
+
+.wasteConnection .wasteConnectionContent ul li{
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+.wasteConnection .wasteConnectionContent .wasteConnectionButton button{
+    border-radius: 50px;
+    margin-top: 40px;
+    border-width: 0px;
+    padding: 6px 25px;
+    color: black;
+}

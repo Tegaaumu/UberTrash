@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/header.css">
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="./CSS/ourServices.css">
+    <link rel="stylesheet" href="./CSS/requestServices.css">
+    <link rel="stylesheet" href="./CSS/wasteConnection.css">
+    <link rel="stylesheet" href="./CSS/contact.css">
+    <link rel="stylesheet" href="./CSS/wasteSolution.css">
+    <link rel="stylesheet" href="./CSS/collectionDay.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h3>Uber Trash</h3>
+        </div>
+        <div class="page_navigation">
+            <ul>
+                <li><a href="#">PickUp</a></li>
+                <li><a href="#">Join</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div class="registration">
+
+            <!-- by kent_add connect button_start_2024-07-26 -->
+            <!-- Start -->
+                      
+            <button id="createButton">Generate Wallet</button>
+            <button id="connectButton">Connect Wallet</button>            
+            
+            <!-- by kent_add connect button_end_2024-07-26 -->
+            <!-- End -->
+
+        </div>
+    </header>
+
+    <main>
+        <p id = "status"></p>
+        <p id = "accountInfo"></p>        
+
+        <div class="company_solgan">
+            <div id="slogan">
+                <h2>Trash faster </h2>
+                <h2 id="secound">with uber trash</h2>
+                <p>Request to sell your cans and get it picked in minute and get paid in solana</p>
+            </div>
+            <div class="userLocation">
+                    <input type="text" id="location" placeholder="Enter your location">
+                    <div class="userLocationButtons">
+                        <button class="signup">See price</button>
+                        <button class="signup">Schedule pickup</button>
+                    </div>
+            </div>
+        </div>
+       <div class="companyImage">
+           <img src="./Image/trash-removebg-preview.png" alt="trashing items">
+           <img src="./Image/stande-removebg-preview.png" alt="oval">
+       </div>
+    </main>
+
+    <div class="Services">
+        <h2>Our Services</h2>
+        <div class="servicesItems">
+            <div id="servicesBox">
+                <h3></h3>
+                <h3>Curbside Trash PickUp</h3>
+            </div>
+            <div id="servicesBox">
+                <h3></h3>
+                <h3>Bulk Trash Removal </h3>
+            </div>
+            <div id="servicesBox">
+                <h3></h3>
+                <h3>Special Event Waste Removal</h3>
+            </div>
+            <div id="servicesBox">
+                <h3></h3>
+                <h3>On-Demand Trash PickUp</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="RequestPickup">
+        <div class="RequestLayout">
+            <div class="RequestLayoutRight">
+                <div>
+                    <h3 id="requestTitle">Request Residental Pickup</h3>
+                    <p id="requestContent">Residental pickup services to enable easy disposal of waste product.</p>
+                </div>
+                
+                <a id="learnMore" href="#">Learn More</a>    
+            </div>
+            <div class="RequestLayoutLeft">
+                <img src="./Image/istockphoto-1272212047-612x612-removebg-preview.png" alt="place another image here">
+            </div>
+       </div>
+    </div>
+
+    <div class="wasteSolution">
+        <div class="wasteSolutionIntro">
+            <h3>Choose Your Waste Solution</h3>
+            <p>Enter your information to start services</p>
+        </div>
+        <div class="wasteInformationcontact">
+            <div class="businesstype">
+                <div class="Hometype">
+                    <i></i>
+                    <h5>For Your Home</h5>
+                    <i></i>
+                </div>
+                <div class="Hometype">
+                    <i></i>
+                    <h5>For Your Business & Organisation</h5>
+                    <i></i>
+                </div>
+            </div>
+
+                <form action="#" method="post">
+                    <label for="Address" id="Address">Address
+                        <input type="text" placeholder="e.g 123 Main street,NW, New York">
+                    </label>
+                    <div>
+                        <div id="usersName">
+                            <label for="FirstName" id="FirstName"> First Name
+                                <input type="text" name="FirstName" placeholder="e.g Mark">
+                            </label>
+                            <label for="LastName" id="LastName">Last Name
+                                <input type="text" name="LastName" placeholder="e.g Smith">
+                            </label>
+                        </div>
+                        <div id="usersName">
+                            <label for="Email" id="Email"> Email
+                                <input type="text" name="Email" placeholder="e.g address@mail.com">
+                            </label>
+                            <label for="Phone" id="Phone"> Email
+                                <input type="text" name="Phone" placeholder="e.g ">
+                            </label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="agree" id="agree">
+                            <label for="agree">I agree to the waste connection terms of services and privacy policy</label>
+                        </div>
+                        <input type="submit" id="submitAddress" value="Submit">
+                    </div>
+                </form>
+        </div>
+    </div>
+
+    <div class="wasteConnection">
+        <div class="wasteConnectionContent">
+            <h3>Start your waste connection garbage PickUp today</h3>
+            <p>Get information about how companies leverage</p>
+            <ul>
+                <li>Residental PickUp</li>
+                <li>Commercial PickUp</li>
+                <li>Scheduled PickUp</li>
+                <li>Bulk PickUp</li>
+            </ul>
+            <div class="wasteConnectionButton">
+                <button>Get Started</button>
+            </div>
+        </div>
+        <img src="./Image/istockphoto-1303126667-612x612.jpg" alt="Trash Bin">
+    </div>
+
+    <div class="collectionDay">
+        <div class="collectionDayList">
+            <h3>Never Miss our collection day again with our app</h3>
+            <p>Experiences the conviniences of managing your waste collection right from the comfort of your home with our WasteConnection Mobile App.</p>
+            <div id="collectionDayImage">
+                <img id="collectionDayImage1" src="./Image/App store.png" alt="App store">
+                <img id="collectionDayImage2" src="./Image/Google play.png" alt="Google Play">
+            </div>
+        </div>
+    </div>
+
+    <div class="contact">
+        <div class="contactSpacing">
+            <div class="conpanyName">
+                <h3>Uber Trash</h3>
+            </div>
+            <div id="contactInfo">
+                <div id="customerSupport" class="contactStyling">
+                    <h4>Customer Support</h4>
+                    <div>
+                        <a href="#">Pay My Bills</a>
+                        <a href="#">Pick Up Schdule</a>
+                        <a href="#">I missed pickup</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+                <div id="company" class="contactStyling">
+                    <h4>Company</h4>
+                    <div>
+                        <a href="#">About Us</a>
+                        <a href="#">Executive Offices</a>
+                        <a href="#">Community Support</a>
+                        <a href="#">Blog</a>
+                    </div>
+                </div>
+                <div id="moreInfo" class="contactStyling">
+                    <h4>More Info</h4>
+                    <div>
+                        <a href="#">Investor</a>
+                        <a href="#">Employment</a>
+                        <a href="#">Substainability</a>
+                        <a href="#">FAQs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="socails">
+                <span></span>
+            </div>
+            <div class="privacy">
+                <div>
+                    <img src="./Image/App store.png" alt="App Store">
+                    <img src="./Image/Google play.png" alt="Google Play">
+                </div>
+                <div class="security">
+                    <a href="#">Privacy</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+
+    <!-- by kent_ add stellar sdk_start_2024-7-26 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/8.2.1/stellar-sdk.min.js"></script>
+    <script src="app.js"></script>
+    <!-- by kent_ add stellar sdk_end_2024-7-26 -->
+
+</body>
+</html>

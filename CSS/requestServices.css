@@ -1,0 +1,36 @@
+.RequestPickup{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+.RequestPickup .RequestLayout{
+    width: 90%;
+    background-color: #fcca6f;
+    display: flex;
+    border-radius: 50px;
+    height: 70vh;
+    justify-content: space-around;
+    padding: 50px 30px;
+}
+.RequestPickup .RequestLayout #requestTitle{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.RequestPickup .RequestLayout #requestContent{
+    font-size: 15px;
+}
+.RequestPickup .RequestLayout #learnMore{
+    padding: 10px 30px;
+    background-color: #fff;
+    border-radius: 50px;
+    width: 80px;
+}
+.RequestPickup .RequestLayout .RequestLayoutRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.RequestPickup .RequestLayout .RequestLayoutLeft{
+    margin-top: 75px;
+}
