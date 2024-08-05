@@ -31,9 +31,11 @@
             <!-- by kent_add connect button_start_2024-07-26 -->
             <!-- Start -->
                       
-            <button id="createButton">Generate Wallet</button>
-            <button id="connectButton">Connect Wallet</button>            
-            
+            <!-- <button id="createButton">Generate Wallet</button> -->
+            <button id="connectButton">Connect Wallet</button>   
+            <button id="sendPayment" disabled>Send Payment</button>
+            <button id="stellarport">Go to Stellarport</button>     
+            <button id="show-form-btn">Start KYC Process</button>                
             <!-- by kent_add connect button_end_2024-07-26 -->
             <!-- End -->
 
@@ -43,6 +45,21 @@
     <main>
         <p id = "status"></p>
         <p id = "accountInfo"></p>        
+
+        <form style="display:none;" id="kyc-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <label for="document">Document:</label>
+            <input type="file" id="document" name="document" accept=".pdf,.jpg,.jpeg,.png" required><br><br>
+    
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="result"></div>
 
         <div class="company_solgan">
             <div id="slogan">

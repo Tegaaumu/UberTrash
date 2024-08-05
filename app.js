@@ -1,87 +1,96 @@
 // by kent _ add create and connect stellar wallet _2024-7-26
-//End
+//Start
 
-document.addEventListener('DOMContentLoaded', () => {
-    const StellarSdk = window.StellarSdk;
+// Connect to the Stellar test network
+// const StellarSdk = require('stellar-sdk');
 
-    document.getElementById('createButton').addEventListener('click', async () => {
-        const statusElement = document.getElementById('status');
-        const accountInfoElement = document.getElementById('accountInfo');
+// Connect to the Stellar test network
+const server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
 
+let sourceKeys;
+let sourceAccount;
+
+document.getElementById('connectButton').addEventListener('click', async () => {
+    const publicKey = prompt('Enter your Stellar public key:');
+    const secretKey = prompt('Enter your Stellar secret key:');
+    if (publicKey && secretKey) {
+        sourceKeys = StellarSdk.Keypair.fromSecret(secretKey);
         try {
-            // Generate a new keypair
-            const pair = StellarSdk.Keypair.random();
-
-            // Display public and secret keys
-            console.log('Public Key:', pair.publicKey());
-            console.log('Secret Key:', pair.secret());
-
-            statusElement.innerHTML = `
-                <strong>Public Key:</strong> ${pair.publicKey()}<br>
-                <strong>Secret Key:</strong> ${pair.secret()}
-            `;
-
-            // Fund the account using Friendbot (testnet only)
-            // For mainnet, you need to fund the account using real XLM
-            const response = await fetch(`https://friendbot.stellar.org/?addr=${pair.publicKey()}`);
-            const responseJSON = await response.json();
-
-            if (response.status === 200) {
-                accountInfoElement.textContent = 'Account successfully created and funded on the testnet.';
-                console.log('Friendbot response:', responseJSON);
-            } else {
-                throw new Error(responseJSON.detail);
-            }
-        } catch (error) {
-            console.error('Error creating account:', error);
-            statusElement.textContent = 'Error creating account. See console for details.';
-        }
-    });
-
-    document.getElementById('connectButton').addEventListener('click', async () => {
-        const statusElement = document.getElementById('status');
-        const accountInfoElement = document.getElementById('accountInfo');
-
-        // Prompt the user to enter their Stellar public key
-        const publicKey = prompt('Please enter your Stellar public key:');
-
-        if (!publicKey) {
-            statusElement.textContent = 'Public key is required.';
-            return;
-        }
-
-        if (!StellarSdk.StrKey.isValidEd25519PublicKey(publicKey)) {
-            statusElement.textContent = 'Invalid public key format.';
-            accountInfoElement.innerHTML = '';
-            return;
-        }
-
-        try {
-            // Create a server instance
-            const server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
-
-            // Load account details
-            const account = await server.loadAccount(publicKey);
-            statusElement.textContent = 'Connected to Stellar account: ' + publicKey;
-            console.log('Account details:', account);
-
-            // Display account balances
-            accountInfoElement.innerHTML = 'Balances:<br>';
-            account.balances.forEach(balance => {
-                accountInfoElement.innerHTML += `Asset: ${balance.asset_type}, Balance: ${balance.balance}<br>`;
+            sourceAccount = await server.loadAccount(publicKey);
+            let accountInfo = `Account ID: ${sourceAccount.id}\nBalances:\n`;
+            sourceAccount.balances.forEach(balance => {
+                accountInfo += `Type: ${balance.asset_type}, Balance: ${balance.balance}\n`;
             });
+            document.getElementById('accountInfo').innerText = accountInfo;
+            document.getElementById('sendPayment').disabled = false;            
         } catch (error) {
-            console.error('Error connecting to Stellar:', error);
-            statusElement.textContent = 'Error connecting to Stellar. See console for details.';
-
-            if (error.response && error.response.status === 400) {
-                statusElement.textContent = 'Bad request: Invalid public key or unfunded account.';
-                
-            } else {
-                statusElement.textContent = 'An error occurred: ' + error.message;
-            }
+            console.error('Error loading account:', error);
+            document.getElementById('accountInfo').innerText = 'Error loading account. Please check your public key.';
         }
-    });
+    }
+});
+
+document.getElementById('sendPayment').addEventListener('click', async () => {
+    const destination = prompt('Enter the destination Stellar public key:');
+    const amount = prompt('Enter the amount to send:');
+    if (destination && amount) {
+        try {
+            const transaction = new StellarSdk.TransactionBuilder(sourceAccount, {
+                fee: await server.fetchBaseFee(),
+                networkPassphrase: StellarSdk.Networks.TESTNET // Use the test network
+            })
+            .addOperation(StellarSdk.Operation.payment({
+                destination: destination,
+                asset: StellarSdk.Asset.native(),
+                amount: amount
+            }))
+            .setTimeout(30)
+            .build();
+
+            transaction.sign(sourceKeys);
+
+            const result = await server.submitTransaction(transaction);
+            console.log('Transaction successful:', result);           
+            alert('Transaction successful');
+        } catch (error) {
+            console.error('Transaction failed:', error);
+            alert('Transaction failed. Please check the console for more details.');
+        }
+    }
+});
+
+document.getElementById('stellarport').addEventListener('click', () => {
+    const publicKey = prompt('Enter your Stellar public key:');
+    if (publicKey) {
+        window.open(`https://stellarport.io/account/${publicKey}`, '_blank');
+    }
+});
+
+document.getElementById('show-form-btn').addEventListener('click', () => {
+    const form = document.getElementById('kyc-form');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+});
+
+// Handle form submission
+document.getElementById('kyc-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('name', document.getElementById('name').value);
+    formData.append('email', document.getElementById('email').value);
+    formData.append('document', document.getElementById('document').files[0]);
+
+    try {
+        const response = await fetch('https://api.jumio.com/v1/kyc/verify', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+        document.getElementById('result').textContent = result.message;
+    } catch (error) {
+        document.getElementById('result').textContent = 'Error: ' + error.message;
+    }
 });
 
 // by kent _ add create and connect stellar wallet_2024-7-26
