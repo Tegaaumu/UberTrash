@@ -1,0 +1,36 @@
+.collectionDay{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 70vh;
+}
+.collectionDay .collectionDayList{
+    width: 600px;
+    margin-right: 100px;
+}
+.collectionDay .collectionDayList h3{
+    font-size: 30px;
+    width: 360px;
+    text-transform: capitalize;
+}
+.collectionDay .collectionDayList p{
+    font-size: 17px;
+    margin-top: 20px;
+    width:500px;
+}
+.collectionDay .collectionDayList #collectionDayImage{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.collectionDay .collectionDayList #collectionDayImage2{
+    width: 200px; 
+    height:60px;  
+}
+.collectionDay .collectionDayList #collectionDayImage1{
+    width: 300px; 
+    height:90px;  
+    margin-left: -70px;
+}
